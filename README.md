@@ -1,4 +1,5 @@
 # NoOSXOverscroll
+![build status](https://travis-ci.org/sheldonbazzell/no-osx-overscroll.svg?branch=master)
 
 ## Prevent overscroll browser back navigation on a Mac.
 

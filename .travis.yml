@@ -1,12 +1,12 @@
+branches:
+  only:
+    - master
 sudo: false
 language: node_js
 cache:
   directories:
     - node_modules
 node_js: 8
-branches:
-  only:
-    - master
 notifications:
   email: false
 before_script:
