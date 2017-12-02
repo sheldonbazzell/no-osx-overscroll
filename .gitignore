@@ -4,7 +4,6 @@
 /dist
 /tmp
 *.map
-*.js
 
 # dependencies
 /node_modules
@@ -33,6 +32,8 @@
 npm-debug.log
 testem.log
 /typings
+/spec/support
+package-lock.json
 
 # System Files
 .DS_Store
