@@ -1,4 +1,4 @@
-import { isMac, noMacOverScroll, isChrome, isFF, isSafari } from '../script';
+import { isMac, noMacOverScroll, isChrome, isFF, isSafari } from './index';
 
 describe('noMacOverScroll should detect whether or not a user is on a Mac', () => {
 
@@ -11,7 +11,7 @@ describe('noMacOverScroll should detect whether or not a user is on a Mac', () =
 		}
 
 	})
-	
+
 })
 
 describe('If the user is on a Mac, noMacOverScroll should detect if the user in Chrome', () => {
@@ -21,8 +21,8 @@ describe('If the user is on a Mac, noMacOverScroll should detect if the user in 
 		this.chrome = isChrome(this.uA);
 		this.ff = isFF(this.uA);
 		this.safari = isSafari(this.uA);
-	} );
-	
+	});
+
 	it('should set ff and safari to false is user is in Chrome', () => {
 
 		if (this.chrome) {
@@ -50,5 +50,17 @@ describe('If the user is on a Mac, noMacOverScroll should detect if the user in 
 		}
 
 	})
+
+})
+
+describe('noMacOverScroll should allow user to scroll right', () => {
+
+})
+
+describe('noMacOverScroll should allow user to scroll left', () => {
+
+})
+
+describe('noMacOverScroll should restrict user from scroll left off screen', () => {
 
 })

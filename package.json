@@ -2,90 +2,51 @@
   "name": "no-osx-overscroll",
   "version": "1.0.0",
   "description": "Prevent overscroll browser navigation on a Mac",
-  "main": "script.js",
+  "main": "index.js",
   "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:main": "babel --out-dir dist --ignore *.spec.js src",
+    "build:umd": "webpack --output-filename index.umd.js",
+    "build:umd.min": "webpack --output-filename index.umd.min.js -p",
     "test": "jasmine",
     "watch:test": "./node_modules/nodemon/bin/nodemon.js -w spec/lib -w lib ./node_modules/babel-cli/bin/babel-node.js ./node_modules/jasmine/bin/jasmine.js --random=true",
     "lint": "eslint .",
-    "validate": "npm-run-all --parallel lint test"
+    "validate": "npm-run-all --parallel lint test build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sheldonbazzell/no-osx-overscroll.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["trackpad", "autonavigate", "disable"],
+  "files": ["dist"],
+  "author": "Sheldon Bazzell",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sheldonbazzell/no-osx-overscroll/issues"
   },
   "homepage": "https://github.com/sheldonbazzell/no-osx-overscroll#readme",
+  "peerDependencies": {
+    "unique-random-array": "^1.0.0"    
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint-config-kentcdodds": "^13.0.1",
     "eslint-plugin-jasmine": "^2.9.1",
     "jasmine": "^2.8.0",
-    "npm-run-all": "^4.1.2"
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.9.1",
+    "json-loader": "^0.5.7",
+    "babel-loader": "^7.1.2"
   },
   "dependencies": {
     "eslint": "^4.12.1"
   },
-  "_args": [
-    [
-      {
-        "raw": "no-osx-overscroll",
-        "scope": null,
-        "escapedName": "no-osx-overscroll",
-        "name": "no-osx-overscroll",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      }
+  "babel": {
+    "presets": [
+      "env"
     ]
-  ],
-  "_from": "no-osx-overscroll@latest",
-  "_id": "no-osx-overscroll@1.0.0",
-  "_inCache": true,
-  "_location": "/no-osx-overscroll",
-  "_nodeVersion": "8.9.1",
-  "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/no-osx-overscroll-1.0.2.tgz_1486080806964_0.6434452189132571"
-  },
-  "_npmUser": {
-    "name": "sheldonbazzell",
-    "email": "sheldon.bazzell@gmail.com"
-  },
-  "_npmVersion": "3.10.9",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "no-osx-overscroll",
-    "scope": null,
-    "escapedName": "no-osx-overscroll",
-    "name": "no-osx-overscroll",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_shasum": "33f17fdf48a84799d1f51f4610489836523b9d5f",
-  "_shrinkwrap": null,
-  "_spec": "no-osx-overscroll",
-  "directories": {},
-  "dist": {
-    "shasum": "33f17fdf48a84799d1f51f4610489836523b9d5f",
-    "tarball": "https://registry.npmjs.org/no-osx-overscroll/-/no-osx-overscroll-1.0.2.tgz"
-  },
-  "gitHead": "bb38feb8e3181c401d256a83ef4bfc0dcbbc4e35",
-  "maintainers": [
-    {
-      "name": "sheldonbazzell",
-      "email": "sheldon.bazzell@gmail.com"
-    }
-  ],
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!"
+  }
 }
