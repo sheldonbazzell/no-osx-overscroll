@@ -1,20 +1,20 @@
-import { isMac, noMacOverScroll, isChrome, isFF, isSafari } from './index';
+import { isMac, noOSXOverscroll, isChrome, isFF, isSafari } from './index';
 
-describe('noMacOverScroll should detect whether or not a user is on a Mac', () => {
+describe('noOSXOverscroll should detect whether or not a user is on a Mac', () => {
 
 	it('should return -1 if the user is not on a Mac', () => {
 
 		const x = isMac(navigator.userAgent);
 
 		if (!x) {
-			expect(noMacOverScroll()).toEqual(-1);
+			expect(noOSXOverscroll()).toEqual(-1);
 		}
 
 	})
 
 })
 
-describe('If the user is on a Mac, noMacOverScroll should detect if the user in Chrome', () => {
+describe('If the user is on a Mac, noOSXOverscroll should detect if the user in Chrome', () => {
 
 	beforeEach(() => {
 		this.uA = navigator.userAgent
@@ -53,14 +53,14 @@ describe('If the user is on a Mac, noMacOverScroll should detect if the user in 
 
 })
 
-describe('noMacOverScroll should allow user to scroll right', () => {
+describe('noOSXOverscroll should allow user to scroll right', () => {
 
 })
 
-describe('noMacOverScroll should allow user to scroll left', () => {
+describe('noOSXOverscroll should allow user to scroll left', () => {
 
 })
 
-describe('noMacOverScroll should restrict user from scroll left off screen', () => {
+describe('noOSXOverscroll should restrict user from scroll left off screen', () => {
 
 })

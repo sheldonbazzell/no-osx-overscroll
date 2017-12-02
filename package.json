@@ -1,6 +1,6 @@
 {
   "name": "no-osx-overscroll",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Prevent overscroll browser navigation on a Mac",
   "main": "index.js",
   "scripts": {

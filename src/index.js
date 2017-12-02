@@ -1,4 +1,4 @@
-export const noMacOverScroll = function () {
+export const noOSXOverscroll = function () {
 
 	const uA = navigator.userAgent;
 
