@@ -1,52 +1,46 @@
-import { isMac, noOSXOverscroll, isChrome, isFF, isSafari } from './index';
+import { isMac, isChrome, isFF, isSafari } from './index';
 
-describe('noOSXOverscroll should detect whether or not a user is on a Mac', () => {
+describe('noOSXOverscroll should detect whether or not a user is on a Mac', function() {
+	
+	const uA = navigator.userAgent;
+
+	beforeEach(() => {
+		this.mac = isMac(uA);
+	});
 
 	it('should return -1 if the user is not on a Mac', () => {
 
-		const x = isMac(navigator.userAgent);
+		if (!uA.match(/Macintosh/)) {
+			expect(this.isMac).toEqual(-1);
+		}
 
-		if (!x) {
-			expect(noOSXOverscroll()).toEqual(-1);
+	})
+
+	it('should set this.isMac to true if user is on a Mac', () => {
+
+		if (uA.match(/Macintosh/)) {
+			expect(this.isMac).not.toEqual(-1);
 		}
 
 	})
 
 })
 
-describe('If the user is on a Mac, noOSXOverscroll should detect if the user in Chrome', () => {
+describe('If the user is on a Mac, noOSXOverscroll should detect if the user in Chrome', function() {
 
 	beforeEach(() => {
-		this.uA = navigator.userAgent
+		this.uA = navigator.userAgent;
 		this.chrome = isChrome(this.uA);
 		this.ff = isFF(this.uA);
-		this.safari = isSafari(this.uA);
+		this.safari = isSafari(this.uA);	
 	});
 
-	it('should set ff and safari to false is user is in Chrome', () => {
+	it('should set ff to false is user is in Chrome', () => {
 
 		if (this.chrome) {
+			expect(this.chrome).toBe(true);
 			expect(this.ff).toBe(false);
-			expect(this.safari).toBe(false);
-		}
-
-	})
-
-	it('should set chrome and safari to false is user is in FF', () => {
-
-
-		if (this.ff) {
-			expect(this.chrome).toBe(false);
-			expect(this.safari).toBe(false);
-		}
-
-	})
-
-	it('should set ff and chrome to false is user is in Chrome', () => {
-
-		if (this.safari) {
-			expect(this.chrome).toBe(false);
-			expect(this.ff).toBe(false);
+			expect(this.safari).toBe(true);
 		}
 
 	})

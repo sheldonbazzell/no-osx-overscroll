@@ -1,8 +1,7 @@
-import { join } from 'path'
-
+const { join } = require('path');
 const include = join(__dirname, 'src')
 
-export default {
+module.exports = {
 	entry: './src/index',
 	output: {
 		path: join(__dirname, 'dist'),

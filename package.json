@@ -1,6 +1,6 @@
 {
   "name": "no-osx-overscroll",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Prevent overscroll browser navigation on a Mac",
   "main": "index.js",
   "scripts": {
@@ -9,17 +9,23 @@
     "build:main": "babel --out-dir dist --ignore *.spec.js src",
     "build:umd": "webpack --output-filename index.umd.js",
     "build:umd.min": "webpack --output-filename index.umd.min.js -p",
-    "test": "jasmine",
-    "watch:test": "./node_modules/nodemon/bin/nodemon.js -w spec/lib -w lib ./node_modules/babel-cli/bin/babel-node.js ./node_modules/jasmine/bin/jasmine.js --random=true",
+    "test": "karma start",
+    "watch:test": "npm test -- --auto-watch --no-single-run",
     "lint": "eslint .",
-    "validate": "npm-run-all --parallel lint test build"
+    "validate": "npm-run-all --parallel lint build test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sheldonbazzell/no-osx-overscroll.git"
   },
-  "keywords": ["trackpad", "autonavigate", "disable"],
-  "files": ["dist"],
+  "keywords": [
+    "trackpad",
+    "autonavigate",
+    "disable"
+  ],
+  "files": [
+    "dist"
+  ],
   "author": "Sheldon Bazzell",
   "license": "MIT",
   "bugs": {
@@ -27,22 +33,28 @@
   },
   "homepage": "https://github.com/sheldonbazzell/no-osx-overscroll#readme",
   "peerDependencies": {
-    "unique-random-array": "^1.0.0"    
+    "unique-random-array": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "eslint-config-kentcdodds": "^13.0.1",
     "eslint-plugin-jasmine": "^2.9.1",
     "jasmine": "^2.8.0",
+    "json-loader": "^0.5.7",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-webpack": "^2.0.6",
     "npm-run-all": "^4.1.2",
     "rimraf": "^2.6.2",
     "webpack": "^3.9.1",
-    "json-loader": "^0.5.7",
-    "babel-loader": "^7.1.2"
+    "webpack-config-utils": "^2.3.0"
   },
   "dependencies": {
-    "eslint": "^4.12.1"
+    "eslint": "^4.12.1",
+    "unique-random-array": "^1.0.0"
   },
   "babel": {
     "presets": [

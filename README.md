@@ -17,6 +17,10 @@ Example:
 ---
 This currently only supports browser back navigation.
 
+### Contributors
+---
+Sheldon Bazzell
+
 ### License
 ---
 MIT
